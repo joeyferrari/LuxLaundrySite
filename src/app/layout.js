@@ -9,7 +9,7 @@ const robotoMono = Roboto_Mono({
 
 export const metadata = {
   title: 'Lux Laundry | Lehigh Valley Laundry Service',
-  description: 'Professional laundry service in Lehigh Valley. Wash, dry, fold, and delivery services available.',
+  description: 'Professional laundry service in Lehigh Valley. Expert wash, dry, fold, and delivery services available.',
 }
 
 export default function RootLayout({ children }) {
