@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from "../components/ui/button";
-import { Menu, ChevronRight, Star, ChevronLeft } from 'lucide-react';
+import { Menu, ChevronRight, ChevronLeft } from 'lucide-react';
 import Image from 'next/image';
 import dynamic from 'next/dynamic';
 
@@ -17,7 +17,6 @@ const PopupForm = dynamic(() => import('../components/PopupForm'), {
 export default function Home() {
   const [weight, setWeight] = useState('');
   const [costResult, setCostResult] = useState('');
-  const [placeholder, setPlaceholder] = useState('');
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [zipcode, setZipcode] = useState('');
   const [zipcodeResult, setZipcodeResult] = useState('');
@@ -175,7 +174,7 @@ export default function Home() {
                     CUSTOMER SINCE {testimonials[prevIndex].since}
                   </div>
                   <p className="text-gray-600 text-center leading-relaxed">
-                    "{testimonials[prevIndex].quote}"
+                    &ldquo;{testimonials[prevIndex].quote}&rdquo;
                   </p>
                 </div>
               </div>
@@ -196,7 +195,7 @@ export default function Home() {
                     CUSTOMER SINCE {testimonials[currentTestimonial].since}
                   </div>
                   <p className="text-gray-600 text-center leading-relaxed">
-                    "{testimonials[currentTestimonial].quote}"
+                    &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
                   </p>
                 </div>
               </div>
@@ -217,7 +216,7 @@ export default function Home() {
                     CUSTOMER SINCE {testimonials[nextIndex].since}
                   </div>
                   <p className="text-gray-600 text-center leading-relaxed">
-                    "{testimonials[nextIndex].quote}"
+                    &ldquo;{testimonials[nextIndex].quote}&rdquo;
                   </p>
                 </div>
               </div>
@@ -310,27 +309,25 @@ export default function Home() {
                 Particular about your laundry? Us too.
               </h3>
               <div className="text-center mt-12 mb-12">
-                <div className="max-w-[600px] mx-auto">
-                  <input
-                    type="number"
-                    id="weight"
-                    placeholder={placeholder}
-                    value={weight}
-                    onChange={(e) => setWeight(e.target.value)}
-                    className="text-4xl p-4 w-full text-center bg-white border border-gray-200 rounded-lg text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F38BA3] focus:border-transparent"
-                    style={{ fontSize: '2.5rem' }}
-                  />
-                  <br /><br />
-                  <button
-                    onClick={calculateCost}
-                    className="w-full px-10 py-4 bg-white border border-gray-300 rounded-full text-xl cursor-pointer hover:bg-gray-100 transition-colors duration-200"
-                  >
-                    CALCULATE COST
-                  </button>
-                  <p className="mt-5 text-lg" style={{ color: costResult.includes("Please enter") ? 'red' : 'green' }}>
-                    {costResult}
-                  </p>
-                </div>
+                <input
+                  type="number"
+                  id="weight"
+                  placeholder="Enter your LBS"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                  className="text-4xl border-none p-4 w-full max-w-[600px] text-center bg-transparent text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  style={{ fontSize: '2.5rem' }}
+                />
+                <br /><br />
+                <button
+                  onClick={calculateCost}
+                  className="w-full px-10 py-4 bg-white border border-gray-300 rounded-full text-xl cursor-pointer hover:bg-gray-100 transition-colors duration-200"
+                >
+                  CALCULATE COST
+                </button>
+                <p className="mt-5 text-lg" style={{ color: costResult.includes("Please enter") ? 'red' : 'green' }}>
+                  {costResult}
+                </p>
               </div>
             </div>
           </div>
